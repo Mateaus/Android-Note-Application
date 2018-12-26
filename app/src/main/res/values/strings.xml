@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NovusNoteApp</string>
+    <string name="welcome">Welcome to Novus!</string>
+    <string name="recoverpass"><u>Forgot your password?</u></string>
+    <string name="new_account">Don\'t have an account?</string>
+    <!-- Login section! -->
+    <string name="login.error.message.signin">Error trying to log in: %s</string>
+    <!-- Registration section! -->
+    <string name="register.error.message.creation">Error registering account: %s</string>
+    <!-- Recovery section! -->
+    <string name="recovery.error.message.retrieval">Error recovering account: %s</string>
+    <!-- AddNote section! -->
+    <string name="addnote.message.title">Add note</string>
+    <string name="addnote.message.add">Accept</string>
+    <string name="addnote.message.cancel">Cancel</string>
+    <string name="addnote.message.contactadded">Note has been added successfully</string>
+    <string name="addnote.error.message">Unable to add note</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

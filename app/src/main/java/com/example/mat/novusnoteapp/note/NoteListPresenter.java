@@ -6,4 +6,5 @@ public interface NoteListPresenter {
 
     void subscribeForNoteEvents();
     void signOff();
+    void onDestroy();
 }

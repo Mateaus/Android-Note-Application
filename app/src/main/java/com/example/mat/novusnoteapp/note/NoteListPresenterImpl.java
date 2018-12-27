@@ -14,6 +14,11 @@ public class NoteListPresenterImpl implements NoteListPresenter, NoteListInterac
     }
 
     @Override
+    public void onDestroy(){
+        noteListView = null;
+    }
+
+    @Override
     public void signOff() {
         noteListInteractor.doSignOff();
     }

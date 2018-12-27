@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mat.novusnoteapp.MainActivity;
 import com.example.mat.novusnoteapp.R;
 import com.example.mat.novusnoteapp.addnote.AddNoteFragment;
 import com.example.mat.novusnoteapp.note.NoteListPresenter;
@@ -50,6 +51,16 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
         return v;
     }
 
+    /**
+     * Clears up the current view so when we return from either reading or updating
+     * a note, it recreates it from 0 and doesn't overwrite over the previous existing one.
+     */
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        noteListPresenter.onDestroy();
+    }
+
     @OnClick(R.id.fab)
     public void addContact(){
         AddNoteFragment frag = new AddNoteFragment();
@@ -86,6 +97,9 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
 
     @Override
     public void onItemClick(Note note) {
+        NoteListActivity noteListActivity = (NoteListActivity)getActivity();
+        noteListActivity.loadReadNoteScreen(note);
+/*
         Fragment frag = new ReadNoteFragment();
         Bundle bundle = new Bundle();
         bundle.putString("category", note.getCategory());
@@ -94,10 +108,12 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
 
         frag.setArguments(bundle);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
+        System.out.println(ft);
+        System.out.println(getFragmentManager().getBackStackEntryCount());
         ft.replace(R.id.note_container, frag);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        ft.addToBackStack(null);
-        ft.commit();
+        ft.addToBackStack("initial");
+        ft.commit();*/
     }
 
     @Override

@@ -22,7 +22,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private OnItemClickListener clickListener;
 
     public NoteListAdapter(List<Note> noteList,
-                                OnItemClickListener clickListener){
+                           OnItemClickListener clickListener){
         this.noteList = noteList;
         this.clickListener = clickListener;
     }
@@ -78,6 +78,10 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         return position;
     }
 
+    public Note getIdByPosition(int position){
+        return noteList.get(position);
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.titleTV)     TextView titleTV;
@@ -106,6 +110,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
                     return false;
                 }
             });
+
         }
     }
 }

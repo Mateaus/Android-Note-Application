@@ -16,21 +16,6 @@ public class NoteListInteractorImpl implements NoteListInteractor {
     }
 
     @Override
-    public void doAddNote(Note note) {
-        noteListRepository.addNote(note);
-    }
-
-    @Override
-    public void doUpdateNote(Note note) {
-        noteListRepository.updateNote(note);
-    }
-
-    @Override
-    public void doRemoveNote(Note note) {
-        noteListRepository.removeNote(note);
-    }
-
-    @Override
     public void doSignOff() {
         noteListRepository.signOff();
     }

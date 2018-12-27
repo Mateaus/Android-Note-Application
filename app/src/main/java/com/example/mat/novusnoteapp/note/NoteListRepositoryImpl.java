@@ -12,7 +12,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class NoteListRepositoryImpl implements NoteListRepository {
 
@@ -59,29 +58,6 @@ public class NoteListRepositoryImpl implements NoteListRepository {
 
             }
         });
-    }
-
-    @Override
-    public void addNote(Note note) {
-        listener.onNoteAdded(note);
-    }
-
-    @Override
-    public void updateNote(Note note) {
-        /**
-         * TODO:needs to implement this
-         */
-        listener.onNoteUpdated(note);
-    }
-
-    @Override
-    public void removeNote(Note note) {
-        String email = helper.getAuthUserEmail().replace(".", "_");
-        // Gets the note reference, then the reference of the specific note's key and deletes it.
-        // Instead of iterating through the entire database and wasting resources.
-        // This way we directly access into the note key's we are trying to delete and remove it.
-        DatabaseReference noteRef = helper.getNotesReference(email).child(note.getId());
-        noteRef.removeValue();
     }
 
     @Override

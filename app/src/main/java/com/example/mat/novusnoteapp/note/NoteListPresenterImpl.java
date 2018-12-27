@@ -24,21 +24,6 @@ public class NoteListPresenterImpl implements NoteListPresenter, NoteListInterac
     }
 
     @Override
-    public void addNote(Note note) {
-        noteListInteractor.doAddNote(note);
-    }
-
-    @Override
-    public void updateNote(Note note) {
-        noteListInteractor.doUpdateNote(note);
-    }
-
-    @Override
-    public void removeNote(Note note) {
-        noteListInteractor.doRemoveNote(note);
-    }
-
-    @Override
     public void onNoteAdded(Note note) {
         if(noteListView != null){
             noteListView.onNoteAdded(note);

@@ -14,7 +14,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/editTxtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/editTxtSubject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp">
 
-        <EditText
+        <android.support.design.widget.TextInputEditText
             android:id="@+id/editTextDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

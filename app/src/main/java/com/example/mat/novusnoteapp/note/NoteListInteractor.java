@@ -11,8 +11,5 @@ public interface NoteListInteractor {
     }
 
     void doSubscribeForNoteEvents();
-    void doAddNote(Note note);
-    void doUpdateNote(Note note);
-    void doRemoveNote(Note note);
     void doSignOff();
 }

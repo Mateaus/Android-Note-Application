@@ -1,13 +1,18 @@
 package com.example.mat.novusnoteapp.note.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,6 +24,7 @@ import com.example.mat.novusnoteapp.note.NoteListPresenterImpl;
 import com.example.mat.novusnoteapp.note.adapters.NoteListAdapter;
 import com.example.mat.novusnoteapp.note.entity.Note;
 import com.example.mat.novusnoteapp.readnote.ReadNoteFragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -29,6 +35,7 @@ import butterknife.OnClick;
 public class NoteListFragment extends Fragment implements NoteListView, OnItemClickListener{
 
     @BindView(R.id.recyclerViewNotes)   RecyclerView recyclerView;
+    @BindView(R.id.toolbar)             Toolbar toolbar;
 
     private NoteListAdapter noteListAdapter;
     private NoteListPresenter noteListPresenter;
@@ -45,10 +52,27 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
 
         noteListPresenter = new NoteListPresenterImpl(this);
         noteListPresenter.subscribeForNoteEvents();
+
+        setHasOptionsMenu(true);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
         setupAdapter();
         setupRecyclerView();
 
         return v;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_logout) {
+            noteListPresenter.signOff();
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -98,27 +122,13 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
     @Override
     public void onItemClick(Note note) {
         NoteListActivity noteListActivity = (NoteListActivity)getActivity();
-        noteListActivity.loadReadNoteScreen(note);
-/*
-        Fragment frag = new ReadNoteFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("category", note.getCategory());
-        bundle.putString("subject", note.getSubject());
-        bundle.putString("description", note.getDescription());
-
-        frag.setArguments(bundle);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        System.out.println(ft);
-        System.out.println(getFragmentManager().getBackStackEntryCount());
-        ft.replace(R.id.note_container, frag);
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        ft.addToBackStack("initial");
-        ft.commit();*/
+        noteListActivity.loadUpdateNoteScreen(note);
     }
 
     @Override
     public void onItemLongClick(Note note) {
-        //noteListPresenter.removeNote(note);
+        NoteListActivity noteListActivity = (NoteListActivity)getActivity();
+        noteListActivity.loadReadNoteScreen(note);
     }
 
     @Override

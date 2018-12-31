@@ -93,8 +93,8 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
     }
 
     @Override
-    public void onDestroy(){
-        super.onDestroy();
+    public void onDestroyView(){
+        super.onDestroyView();
         addNotePresenter.onDestroy();
     }
 

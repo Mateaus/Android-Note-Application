@@ -31,13 +31,13 @@ public class ReadNoteFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_read_note, container, false);
         ButterKnife.bind(this, v);
 
-        /*String category = getArguments().getString("category");
+        String category = getArguments().getString("category");
         String subject = getArguments().getString("subject");
         String description = getArguments().getString("description");
 
         categoryTV.setText(category);
         subjectTV.setText(subject);
-        descriptionTV.setText(description);*/
+        descriptionTV.setText(description);
 
         return v;
     }
@@ -45,8 +45,7 @@ public class ReadNoteFragment extends Fragment {
     @Override
     public void onDestroyView(){
         super.onDestroyView();
-        System.out.println("WE ARE HERE");
-        getFragmentManager().popBackStack("initial", 0);
+        getFragmentManager().popBackStack();
     }
 
 }

@@ -57,7 +57,11 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     }
 
     public void update(Note note){
-
+        int pos = getPositionById(note);
+        this.noteList.get(pos).setCategory(note.getCategory());
+        this.noteList.get(pos).setSubject(note.getSubject());
+        this.noteList.get(pos).setDescription(note.getDescription());
+        this.notifyDataSetChanged();
     }
 
     public void remove(Note note){

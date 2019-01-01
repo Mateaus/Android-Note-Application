@@ -2,6 +2,7 @@ package com.example.mat.novusnoteapp.addnote;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -23,14 +24,10 @@ import butterknife.ButterKnife;
  */
 public class AddNoteFragment extends DialogFragment implements AddNoteView, DialogInterface.OnShowListener{
 
-    @BindView(R.id.editTxtTitle)
-    EditText inputTitle;
-    @BindView(R.id.editTxtSubject)
-    EditText inputSubject;
-    @BindView(R.id.editTextDescription)
-    EditText inputDescription;
-    @BindView(R.id.progressBar)
-    ProgressBar progressBar;
+    @BindView(R.id.editTxtTitle)        EditText inputTitle;
+    @BindView(R.id.editTxtSubject)      EditText inputSubject;
+    @BindView(R.id.editTextDescription) EditText inputDescription;
+    @BindView(R.id.progressBar)         ProgressBar progressBar;
 
     private AddNotePresenter addNotePresenter;
 
@@ -40,8 +37,10 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
 
     @Override
     public Dialog onCreateDialog(Bundle saveInstanceState){
+        LayoutInflater i = getActivity().getLayoutInflater();
+        View v = i.inflate(R.layout.add_note_title, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.addnote_message_title)
+                .setCustomTitle(v)
                 .setPositiveButton(R.string.addnote_message_add,
                         new DialogInterface.OnClickListener() {
                             @Override
@@ -53,7 +52,6 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
                             public void onClick(DialogInterface dialog, int which) {}
                         });
 
-        LayoutInflater i = getActivity().getLayoutInflater();
         View view = i.inflate(R.layout.fragment_add_note_dialog, null);
         ButterKnife.bind(this, view);
         builder.setView(view);
@@ -70,7 +68,9 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
         if(dialog != null){
 
             Button positiveButton = dialog.getButton(Dialog.BUTTON_POSITIVE);
+            positiveButton.setTextColor(Color.parseColor("#D81B60"));
             Button negativeButton = dialog.getButton(Dialog.BUTTON_NEGATIVE);
+            negativeButton.setTextColor(Color.parseColor("#D81B60"));
 
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override

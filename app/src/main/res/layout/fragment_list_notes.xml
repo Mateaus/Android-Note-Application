@@ -36,8 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:tint="@android:color/white"
-        android:src="@android:drawable/ic_input_add" />
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@color/lightblue"
+        app:backgroundTint="@color/seablue" />
 
     <FrameLayout
         android:id="@+id/note_container"

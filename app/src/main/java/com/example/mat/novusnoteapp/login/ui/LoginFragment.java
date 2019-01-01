@@ -107,8 +107,8 @@ public class LoginFragment extends Fragment implements LoginView{
         passwordET.setText("");
         String msgError = String.format(getString(R.string.login_error_message_signin),error);
         passwordET.requestFocus();
-        emailLayout.setError(msgError);
-        //passwordET.setError(msgError);
+        //emailLayout.setError(msgError);
+        passwordET.setError(msgError);
     }
 
     @Override

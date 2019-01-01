@@ -3,7 +3,6 @@ package com.example.mat.novusnoteapp.note.ui;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 
-
 import com.example.mat.novusnoteapp.domain.FireBaseHelper;
 import com.example.mat.novusnoteapp.note.adapters.NoteListAdapter;
 import com.example.mat.novusnoteapp.note.entity.Note;

@@ -4,18 +4,17 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 
 import com.example.mat.novusnoteapp.R;
 import com.example.mat.novusnoteapp.note.entity.Note;
 import com.example.mat.novusnoteapp.readnote.ReadNoteFragment;
-import com.example.mat.novusnoteapp.updatenote.UpdateNoteFragment;
+import com.example.mat.novusnoteapp.updatenote.ui.UpdateNoteFragment;
 
 import butterknife.ButterKnife;
 
 public class NoteListActivity extends AppCompatActivity {
 
-    FragmentManager fm;
+    private FragmentManager fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

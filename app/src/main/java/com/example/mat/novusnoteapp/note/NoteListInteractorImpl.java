@@ -1,7 +1,5 @@
 package com.example.mat.novusnoteapp.note;
 
-import com.example.mat.novusnoteapp.note.entity.Note;
-
 public class NoteListInteractorImpl implements NoteListInteractor {
 
     private NoteListRepository noteListRepository;

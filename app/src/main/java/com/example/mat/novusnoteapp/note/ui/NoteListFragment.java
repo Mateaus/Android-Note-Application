@@ -3,18 +3,16 @@ package com.example.mat.novusnoteapp.note.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mat.novusnoteapp.MainActivity;
 import com.example.mat.novusnoteapp.R;
@@ -23,8 +21,7 @@ import com.example.mat.novusnoteapp.note.NoteListPresenter;
 import com.example.mat.novusnoteapp.note.NoteListPresenterImpl;
 import com.example.mat.novusnoteapp.note.adapters.NoteListAdapter;
 import com.example.mat.novusnoteapp.note.entity.Note;
-import com.example.mat.novusnoteapp.readnote.ReadNoteFragment;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -86,7 +83,7 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
     }
 
     @OnClick(R.id.fab)
-    public void addContact(){
+    public void addNote(){
         AddNoteFragment frag = new AddNoteFragment();
         frag.show(getFragmentManager(), "");
     }
@@ -134,7 +131,7 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
     @Override
     public void onDestroy(){
         // Logs us out when this activity is destroyed.
-        noteListPresenter.signOff();
         super.onDestroy();
+        noteListPresenter.signOff();
     }
 }

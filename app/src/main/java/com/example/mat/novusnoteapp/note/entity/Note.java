@@ -11,6 +11,12 @@ public class Note {
 
     }
 
+    public Note(String category, String subject, String description){
+        this.category = category;
+        this.subject = subject;
+        this.description = description;
+    }
+
     public Note(String id, String category, String subject, String description){
         this.id = id;
         this.category = category;

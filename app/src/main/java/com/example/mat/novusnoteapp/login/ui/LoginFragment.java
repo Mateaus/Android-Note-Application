@@ -13,11 +13,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mat.novusnoteapp.R;
+import com.example.mat.novusnoteapp.accrecovery.ui.RecoveryFragment;
 import com.example.mat.novusnoteapp.login.LoginPresenter;
 import com.example.mat.novusnoteapp.login.LoginPresenterImpl;
 import com.example.mat.novusnoteapp.note.ui.NoteListActivity;
-import com.example.mat.novusnoteapp.accrecovery.ui.RecoveryFragment;
 import com.example.mat.novusnoteapp.register.ui.RegisterFragment;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +48,8 @@ public class LoginFragment extends Fragment implements LoginView{
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_login, container, false);
         ButterKnife.bind(this, v);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         loginPresenter = new LoginPresenterImpl(this);
         loginPresenter.checkForAuthenticatedUser();
 

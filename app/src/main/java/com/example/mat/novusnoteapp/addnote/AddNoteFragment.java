@@ -75,9 +75,15 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    addNotePresenter.addNote(inputTitle.getText().toString(),
-                            inputSubject.getText().toString(),
-                            inputDescription.getText().toString());
+                    if(inputTitle.getText().toString().isEmpty() &&
+                            inputSubject.getText().toString().isEmpty() &&
+                            inputDescription.getText().toString().isEmpty()){
+                        dismiss();
+                    } else {
+                        addNotePresenter.addNote(inputTitle.getText().toString(),
+                                inputSubject.getText().toString(),
+                                inputDescription.getText().toString());
+                    }
                 }
             });
 

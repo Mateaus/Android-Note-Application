@@ -35,7 +35,7 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
     private AddNotePresenter addNotePresenter;
 
     public AddNoteFragment(){
-        addNotePresenter = new AddNotePresenterImpl(this);
+        this.addNotePresenter = new AddNotePresenterImpl(this);
     }
 
     @Override

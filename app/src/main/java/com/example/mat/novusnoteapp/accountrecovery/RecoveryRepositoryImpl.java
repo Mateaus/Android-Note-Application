@@ -1,4 +1,4 @@
-package com.example.mat.novusnoteapp.accrecovery;
+package com.example.mat.novusnoteapp.accountrecovery;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;

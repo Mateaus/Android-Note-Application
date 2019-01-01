@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NovusNoteApp</string>
-    <string name="welcome">Welcome to Novus!</string>
-    <string name="recoverpass"><u>Forgot your password?</u></string>
+    <string name="welcome">Novus</string>
+    <string name="recoverpass">Forgot your password?</string>
     <string name="new_account">Don\'t have an account?</string>
     <!-- Login section! -->
     <string name="login.error.message.signin">Error trying to log in: %s</string>

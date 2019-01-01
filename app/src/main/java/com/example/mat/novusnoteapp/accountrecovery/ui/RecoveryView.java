@@ -1,4 +1,4 @@
-package com.example.mat.novusnoteapp.accrecovery.ui;
+package com.example.mat.novusnoteapp.accountrecovery.ui;
 
 public interface RecoveryView {
     void onRecoverySuccess(String message);

@@ -1,4 +1,4 @@
-package com.example.mat.novusnoteapp.accrecovery.ui;
+package com.example.mat.novusnoteapp.accountrecovery.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,8 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mat.novusnoteapp.R;
-import com.example.mat.novusnoteapp.accrecovery.RecoveryPresenter;
-import com.example.mat.novusnoteapp.accrecovery.RecoveryPresenterImpl;
+import com.example.mat.novusnoteapp.accountrecovery.RecoveryPresenter;
+import com.example.mat.novusnoteapp.accountrecovery.RecoveryPresenterImpl;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

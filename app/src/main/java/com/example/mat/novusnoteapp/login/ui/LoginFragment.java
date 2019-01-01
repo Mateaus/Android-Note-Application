@@ -2,6 +2,7 @@ package com.example.mat.novusnoteapp.login.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.mat.novusnoteapp.R;
-import com.example.mat.novusnoteapp.accrecovery.ui.RecoveryFragment;
+import com.example.mat.novusnoteapp.accountrecovery.ui.RecoveryFragment;
 import com.example.mat.novusnoteapp.login.LoginPresenter;
 import com.example.mat.novusnoteapp.login.LoginPresenterImpl;
 import com.example.mat.novusnoteapp.note.ui.NoteListActivity;
@@ -29,6 +30,7 @@ import butterknife.OnClick;
  */
 public class LoginFragment extends Fragment implements LoginView{
 
+    @BindView(R.id.emailLayout)     TextInputLayout emailLayout;
     @BindView(R.id.emailET)         EditText emailET;
     @BindView(R.id.passwordET)      EditText passwordET;
     @BindView(R.id.loginBtn)        Button loginBtn;
@@ -48,7 +50,6 @@ public class LoginFragment extends Fragment implements LoginView{
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_login, container, false);
         ButterKnife.bind(this, v);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         loginPresenter = new LoginPresenterImpl(this);
         loginPresenter.checkForAuthenticatedUser();
@@ -106,7 +107,8 @@ public class LoginFragment extends Fragment implements LoginView{
         passwordET.setText("");
         String msgError = String.format(getString(R.string.login_error_message_signin),error);
         passwordET.requestFocus();
-        passwordET.setError(msgError);
+        emailLayout.setError(msgError);
+        //passwordET.setError(msgError);
     }
 
     @Override

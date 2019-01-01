@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.example.mat.novusnoteapp.AndroidNoteApplication;
 import com.example.mat.novusnoteapp.MainActivity;
 import com.example.mat.novusnoteapp.R;
 import com.example.mat.novusnoteapp.addnote.AddNoteFragment;
@@ -21,7 +21,6 @@ import com.example.mat.novusnoteapp.note.NoteListPresenter;
 import com.example.mat.novusnoteapp.note.NoteListPresenterImpl;
 import com.example.mat.novusnoteapp.note.adapters.NoteListAdapter;
 import com.example.mat.novusnoteapp.note.entity.Note;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -55,6 +54,7 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
 
         setupAdapter();
         setupRecyclerView();
+
 
         return v;
     }

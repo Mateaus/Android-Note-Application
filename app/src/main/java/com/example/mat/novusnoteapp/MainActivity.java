@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.mat.novusnoteapp.login.ui.LoginFragment;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +35,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(loginFragment != null){
-            getSupportFragmentManager().beginTransaction().remove(getSupportFragmentManager().findFragmentById(R.id.container_main)).commit();
-            loginFragment = null;
-        }
     }
 }

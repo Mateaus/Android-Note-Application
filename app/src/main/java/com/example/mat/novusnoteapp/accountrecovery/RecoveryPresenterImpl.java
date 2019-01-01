@@ -1,6 +1,6 @@
-package com.example.mat.novusnoteapp.accrecovery;
+package com.example.mat.novusnoteapp.accountrecovery;
 
-import com.example.mat.novusnoteapp.accrecovery.ui.RecoveryView;
+import com.example.mat.novusnoteapp.accountrecovery.ui.RecoveryView;
 
 public class RecoveryPresenterImpl implements RecoveryPresenter, RecoveryInteractor.onRecoveryFinishedListener{
 

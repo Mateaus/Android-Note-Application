@@ -5,12 +5,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.mat.novusnoteapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
@@ -19,6 +21,7 @@ public class ReadNoteFragment extends Fragment {
 
     @BindView(R.id.titleTV)         TextView titleTV;
     @BindView(R.id.descriptionTV)   TextView descriptionTV;
+    @BindView(R.id.backBtn)         ImageButton backBtn;
 
     public ReadNoteFragment(){
         // Required empty public constructor
@@ -38,6 +41,11 @@ public class ReadNoteFragment extends Fragment {
     @Override
     public void onDestroyView(){
         super.onDestroyView();
+        getFragmentManager().popBackStack();
+    }
+
+    @OnClick(R.id.backBtn)
+    public void backButtonHandler(){
         getFragmentManager().popBackStack();
     }
 

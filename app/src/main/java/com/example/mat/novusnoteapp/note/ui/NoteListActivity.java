@@ -35,8 +35,7 @@ public class NoteListActivity extends AppCompatActivity {
         ReadNoteFragment readNoteFragment = new ReadNoteFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putString("category", note.getCategory());
-        bundle.putString("subject", note.getSubject());
+        bundle.putString("title", note.getTitle());
         bundle.putString("description", note.getDescription());
         readNoteFragment.setArguments(bundle);
 
@@ -48,8 +47,7 @@ public class NoteListActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("id", note.getId());
-        bundle.putString("category", note.getCategory());
-        bundle.putString("subject", note.getSubject());
+        bundle.putString("title", note.getTitle());
         bundle.putString("description", note.getDescription());
         updateNoteFragment.setArguments(bundle);
 

@@ -5,5 +5,5 @@ public interface AddNotePresenter {
     void onShow();
     void onDestroy();
 
-    void addNote(String title, String subject, String description);
+    void addNote(String title, String description);
 }

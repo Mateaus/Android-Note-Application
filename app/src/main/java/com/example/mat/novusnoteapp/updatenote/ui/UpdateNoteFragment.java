@@ -25,8 +25,7 @@ public class UpdateNoteFragment extends Fragment implements UpdateNoteView{
 
     @BindView(R.id.acceptBtn)       ImageButton acceptBtn;
     @BindView(R.id.backBtn)         ImageButton backBtn;
-    @BindView(R.id.categoryET)      EditText categoryET;
-    @BindView(R.id.subjectET)       EditText subjectET;
+    @BindView(R.id.titleET)         EditText titleET;
     @BindView(R.id.descriptionET)   EditText descriptionET;
 
     private UpdateNotePresenter updateNotePresenter;
@@ -49,8 +48,7 @@ public class UpdateNoteFragment extends Fragment implements UpdateNoteView{
     @OnClick(R.id.acceptBtn)
     public void acceptButtonHandler(){
         updateNotePresenter.updateNote(this,
-                new Note(categoryET.getText().toString(),
-                        subjectET.getText().toString(),
+                new Note(titleET.getText().toString(),
                         descriptionET.getText().toString()));
     }
 
@@ -81,12 +79,10 @@ public class UpdateNoteFragment extends Fragment implements UpdateNoteView{
     }
 
     private void setupNote(){
-        String category = getArguments().getString("category");
-        String subject = getArguments().getString("subject");
+        String category = getArguments().getString("title");
         String description = getArguments().getString("description");
 
-        categoryET.setText(category);
-        subjectET.setText(subject);
+        titleET.setText(category);
         descriptionET.setText(description);
     }
 }

@@ -12,6 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class AddNotePresenterImpl implements AddNotePresenter{
 
     private AddNoteView addNoteView;
@@ -33,15 +36,15 @@ public class AddNotePresenterImpl implements AddNotePresenter{
     }
 
     @Override
-    public void addNote(String title, String subject, String description) {
+    public void addNote(String title, String description) {
         addNoteView.hideInput();
         addNoteView.showProgress();
 
-        addContact(title, subject, description);
+        addNote(title, description, getCurrentDate());
     }
 
-    private void addContact(final String title, final String subject,
-                            final String description){
+    private void addNote(final String title, final String description,
+                            final String date){
         final DatabaseReference userReference = getUserReference(getAuthUserEmail());
         userReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -50,7 +53,7 @@ public class AddNotePresenterImpl implements AddNotePresenter{
                 if(user != null){
                     String emailKey = user.getEmail().replace(".","_");
                     String noteKey = dataReference.child("notes").child(emailKey).push().getKey();
-                    dataReference.child("notes").child(emailKey).child(noteKey).setValue(new Note(noteKey,title,subject,description));
+                    dataReference.child("notes").child(emailKey).child(noteKey).setValue(new Note(noteKey,title,description,date));
                     addNoteView.noteAdded();
                 } else {
                     addNoteView.showInput();
@@ -91,5 +94,19 @@ public class AddNotePresenterImpl implements AddNotePresenter{
             email = user.getEmail();
         }
         return email;
+    }
+
+    private String getCurrentDate(){
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+
+        int month = c.get(Calendar.MONTH)+1;
+        int week = c.get(Calendar.DAY_OF_MONTH);
+        int year = c.get(Calendar.YEAR);
+
+        String time = Integer.toString(month) +"/"+ Integer.toString(week) +"/"+ Integer.toString(year);
+
+        return time;
     }
 }

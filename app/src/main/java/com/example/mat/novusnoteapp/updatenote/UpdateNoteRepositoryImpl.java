@@ -25,15 +25,11 @@ public class UpdateNoteRepositoryImpl implements UpdateNoteRepository {
             DatabaseReference myRef = fireBaseHelper.getNotesReference(emailRef);
             int updateFlag = 0;
 
-            if(!getCategoryFromBundle(fragment).equals(updatedNote.getCategory())){
-                myRef.child(getIdFromBundle(fragment)).child("category").setValue(updatedNote.getCategory());
+            if(!getCategoryFromBundle(fragment).equals(updatedNote.getTitle())){
+                myRef.child(getIdFromBundle(fragment)).child("title").setValue(updatedNote.getTitle());
                 updateFlag = 1;
             }
-            if(!getSubjectFromBundle(fragment).equals(updatedNote.getSubject())){
-                myRef.child(getIdFromBundle(fragment)).child("subject").setValue(updatedNote.getSubject());
-                updateFlag = 1;
-            }
-            if(!getDescriptionFromBundle(fragment).equals(updatedNote.getDescription())){
+            if(!getSubjectFromBundle(fragment).equals(updatedNote.getDescription())){
                 myRef.child(getIdFromBundle(fragment)).child("description").setValue(updatedNote.getDescription());
                 updateFlag = 1;
             }
@@ -61,14 +57,10 @@ public class UpdateNoteRepositoryImpl implements UpdateNoteRepository {
     }
 
     private String getCategoryFromBundle(Fragment fragment){
-        return fragment.getArguments().getString("category");
+        return fragment.getArguments().getString("title");
     }
 
     private String getSubjectFromBundle(Fragment fragment){
-        return fragment.getArguments().getString("subject");
-    }
-
-    private String getDescriptionFromBundle(Fragment fragment){
         return fragment.getArguments().getString("description");
     }
 }

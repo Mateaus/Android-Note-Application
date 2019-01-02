@@ -17,8 +17,7 @@ import butterknife.ButterKnife;
  */
 public class ReadNoteFragment extends Fragment {
 
-    @BindView(R.id.categoryTV)      TextView categoryTV;
-    @BindView(R.id.subjectTV)       TextView subjectTV;
+    @BindView(R.id.titleTV)         TextView titleTV;
     @BindView(R.id.descriptionTV)   TextView descriptionTV;
 
     public ReadNoteFragment(){
@@ -43,12 +42,10 @@ public class ReadNoteFragment extends Fragment {
     }
 
     private void setupNote(){
-        String category = getArguments().getString("category");
-        String subject = getArguments().getString("subject");
+        String title = getArguments().getString("title");
         String description = getArguments().getString("description");
 
-        categoryTV.setText(category);
-        subjectTV.setText(subject);
+        titleTV.setText(title);
         descriptionTV.setText(description);
     }
 

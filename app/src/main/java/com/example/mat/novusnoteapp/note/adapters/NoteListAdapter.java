@@ -11,6 +11,9 @@ import com.example.mat.novusnoteapp.R;
 import com.example.mat.novusnoteapp.note.entity.Note;
 import com.example.mat.novusnoteapp.note.ui.OnItemClickListener;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -39,11 +42,13 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         Note note = noteList.get(position);
         holder.setClickListener(note, clickListener);
 
-        String category = note.getCategory();
-        String subject = note.getSubject();
+        String title = note.getTitle();
+        String description = note.getDescription();
+        String date = note.getDate();
 
-        holder.titleTV.setText(category);
-        holder.subjectTV.setText(subject);
+        holder.titleTV.setText(title);
+        holder.descriptionTV.setText(description);
+        holder.dateTV.setText(date);
     }
 
     @Override
@@ -58,8 +63,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     public void update(Note note){
         int pos = getPositionById(note);
-        this.noteList.get(pos).setCategory(note.getCategory());
-        this.noteList.get(pos).setSubject(note.getSubject());
+        this.noteList.get(pos).setTitle(note.getTitle());
         this.noteList.get(pos).setDescription(note.getDescription());
         this.notifyDataSetChanged();
     }
@@ -88,8 +92,9 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.titleTV)     TextView titleTV;
-        @BindView(R.id.subjectTV)   TextView subjectTV;
+        @BindView(R.id.titleTV)         TextView titleTV;
+        @BindView(R.id.descriptionTV)   TextView descriptionTV;
+        @BindView(R.id.dateTV)          TextView dateTV;
         private View view;
 
         public ViewHolder(View itemView) {

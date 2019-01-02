@@ -66,14 +66,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/categoryET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/subjectET"
+                    android:id="@+id/titleET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -84,6 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:background="@android:color/transparent"
                     android:inputType="textMultiLine" />
 
             </LinearLayout>

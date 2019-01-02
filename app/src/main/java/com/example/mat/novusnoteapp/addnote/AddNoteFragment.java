@@ -24,10 +24,9 @@ import butterknife.ButterKnife;
  */
 public class AddNoteFragment extends DialogFragment implements AddNoteView, DialogInterface.OnShowListener{
 
-    @BindView(R.id.editTxtTitle)        EditText inputTitle;
-    @BindView(R.id.editTxtSubject)      EditText inputSubject;
-    @BindView(R.id.editTextDescription) EditText inputDescription;
-    @BindView(R.id.progressBar)         ProgressBar progressBar;
+    @BindView(R.id.titleTV)         EditText titleTV;
+    @BindView(R.id.descriptionTV)   EditText descriptionTV;
+    @BindView(R.id.progressBar)     ProgressBar progressBar;
 
     private AddNotePresenter addNotePresenter;
 
@@ -75,14 +74,12 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(inputTitle.getText().toString().isEmpty() &&
-                            inputSubject.getText().toString().isEmpty() &&
-                            inputDescription.getText().toString().isEmpty()){
+                    if(titleTV.getText().toString().isEmpty() &&
+                            descriptionTV.getText().toString().isEmpty()){
                         dismiss();
                     } else {
-                        addNotePresenter.addNote(inputTitle.getText().toString(),
-                                inputSubject.getText().toString(),
-                                inputDescription.getText().toString());
+                        addNotePresenter.addNote(titleTV.getText().toString(),
+                                descriptionTV.getText().toString());
                     }
                 }
             });
@@ -106,16 +103,14 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
 
     @Override
     public void showInput() {
-        inputTitle.setVisibility(View.VISIBLE);
-        inputSubject.setVisibility(View.VISIBLE);
-        inputDescription.setVisibility(View.VISIBLE);
+        titleTV.setVisibility(View.VISIBLE);
+        descriptionTV.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideInput() {
-        inputTitle.setVisibility(View.GONE);
-        inputSubject.setVisibility(View.GONE);
-        inputDescription.setVisibility(View.GONE);
+        titleTV.setVisibility(View.GONE);
+        descriptionTV.setVisibility(View.GONE);
     }
 
     @Override
@@ -136,6 +131,6 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
 
     @Override
     public void noteNotAdded() {
-        inputDescription.setError(getString(R.string.addnote_error_message));
+        descriptionTV.setError(getString(R.string.addnote_error_message));
     }
 }

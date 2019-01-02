@@ -15,7 +15,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:textColorHint="@color/grey">
+        android:textColorHint="@color/lightbrown">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/titleTV"
@@ -40,7 +40,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:textColorHint="@color/grey">
+        android:textColorHint="@color/lightbrown">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/descriptionTV"

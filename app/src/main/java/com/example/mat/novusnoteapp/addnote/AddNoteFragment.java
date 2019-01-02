@@ -67,9 +67,9 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
         if(dialog != null){
 
             Button positiveButton = dialog.getButton(Dialog.BUTTON_POSITIVE);
-            positiveButton.setTextColor(Color.parseColor("#D81B60"));
+            positiveButton.setTextColor(Color.parseColor("#4b2c20"));
             Button negativeButton = dialog.getButton(Dialog.BUTTON_NEGATIVE);
-            negativeButton.setTextColor(Color.parseColor("#D81B60"));
+            negativeButton.setTextColor(Color.parseColor("#4b2c20"));
 
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override

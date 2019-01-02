@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".note.ui.NoteListActivity"
-            android:label="Note"
+            android:label="Notes"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data

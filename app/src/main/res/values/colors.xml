@@ -12,4 +12,13 @@
     <color name="darkorange">#f7761a</color>
     <color name="lightblue">#44bcf7</color>
     <color name="grey">#9f9f9f</color>
+
+    <!-- Brown Colors Interface -->
+    <color name="brown">#795548</color>
+    <color name="lightbrown">#a98274</color>
+    <color name="darkbrown">#4b2c20</color>
+
+    <color name="darkerbrown">#5d4037</color>
+    <color name="lightdarkerbrown">#8b6b61</color>
+    <color name="darkdarkerbrown">#321911</color>
 </resources>

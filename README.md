@@ -1,5 +1,6 @@
 # Android-Note-Application
-An android note taking application using Firebase Authenticating system and realtime database.
+An android note application following the MPV architecture and repository pattern and using the Firebase framework.
+<img src="https://user-images.githubusercontent.com/35089063/50620962-660eba00-0ec8-11e9-9abd-4b57e65d40f4.png" height="500">
 ## Description
 - This is a note taking application following the MVP architecture and repository pattern. 
 - The application saves notes under a personal email account to keep it safe and be retrieval in any other android mobile device.

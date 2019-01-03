@@ -1,5 +1,5 @@
 # Android-Note-Application
-An android note taking application using Firebase realtime database.
+An android note taking application using Firebase Authenticating system and realtime database.
 ## Description
 - This is a note taking application which saves notes under a personal email account to keep it safe and be retrieval in any other android mobile device.
 ## Features

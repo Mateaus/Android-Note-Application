@@ -3,7 +3,7 @@
 <img src="https://user-images.githubusercontent.com/35089063/50620962-660eba00-0ec8-11e9-9abd-4b57e65d40f4.png" height="500">
 
 ## Description
-- The application saves notes under a personal email account to keep it safe and be retrieval in any other android mobile device.
+- The application saves notes under a personal email account to keep it safe and be retrieved in any other android mobile device.
 ## Features
 - This applications uses the Firebase authentication and real time database. This allows users to store their notes under their email account and allows them to see all their notes in any android device the user decides to log in. It also has the ability to save notes if the user loses internet connection and once the user reconnects to the internet, it updates the realtime database with all the new notes.
 ## Prerequisities

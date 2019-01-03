@@ -15,4 +15,4 @@ An android note taking application using Firebase realtime database.
 ## Known Issues
 - The application uses the free version of Firebase so if this app is ever used by at least a 100 people simultaneously. It won't let more people connect. It also contains a limit of how much data can be downloaded monthly but I don't think it will be a problem since the app's consumption is minimal.
 ## Running the Application
-- In order to run the application, either clone the entire project in android studio and run it or download the noteapp.apk in your android mobile device and let it install the app.
+- In order to run the application, either clone the entire project in android studio and run it or download the [noteapp.apk](https://github.com/Mateaus/Android-Note-Application/tree/master/app/release) in your android mobile device and let it install the app.

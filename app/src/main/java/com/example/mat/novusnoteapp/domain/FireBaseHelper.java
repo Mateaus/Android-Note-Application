@@ -31,7 +31,7 @@ public class FireBaseHelper {
         return getUserReference(getAuthUserEmail());
     }
 
-    public DatabaseReference getNotesReference(String email){
+    public DatabaseReference getUserNoteReference(String email){
         DatabaseReference notesReference = null;
         if(email != null){
             notesReference = databaseReference.getRoot().child("notes").child(email);

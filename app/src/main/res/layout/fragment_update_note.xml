@@ -60,34 +60,35 @@
         android:layout_height="match_parent"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/titleET"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:maxLength="32"
+                android:textStyle="bold"
+                android:theme="@style/EditTextThemeNote" />
 
-                <EditText
-                    android:id="@+id/titleET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textStyle="bold"
-                    android:maxLength="32"
-                    android:theme="@style/EditTextThemeNote"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"/>
+            <EditText
+                android:id="@+id/descriptionET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:maxLength="256"
+                android:theme="@style/MultiEditTextTheme"/>
 
-                <EditText
-                    android:id="@+id/descriptionET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:maxLength="256"
-                    android:background="@android:color/transparent"
-                    android:inputType="textMultiLine"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"/>
-
-            </LinearLayout>
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

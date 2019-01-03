@@ -59,5 +59,4 @@ public class NoteListActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_notelist, menu);
         return true;
     }
-
 }

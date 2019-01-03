@@ -39,7 +39,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         // Gets the note reference, then the reference of the specific note's key and deletes it.
         // Instead of iterating through the entire database and wasting resources.
         // This way we directly access into the note key's we are trying to delete and remove it.
-        DatabaseReference noteRef = helper.getNotesReference(email).child(note.getId());
+        DatabaseReference noteRef = helper.getUserNoteReference(email).child(note.getId());
         noteRef.removeValue();
     }
 }

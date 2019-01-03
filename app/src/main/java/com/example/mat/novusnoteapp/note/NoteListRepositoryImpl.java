@@ -6,12 +6,10 @@ import android.support.annotation.Nullable;
 import com.example.mat.novusnoteapp.domain.FireBaseHelper;
 import com.example.mat.novusnoteapp.note.entity.Note;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class NoteListRepositoryImpl implements NoteListRepository {
 
@@ -25,10 +23,9 @@ public class NoteListRepositoryImpl implements NoteListRepository {
 
     @Override
     public void subscribeForNoteEvents() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String email = user.getEmail().replace(".","_");
-        DatabaseReference myRef = database.getReference().child("notes").child(email);
+        String email = helper.getAuthUserEmail().replace(".","_");
+
+        DatabaseReference myRef = helper.getUserNoteReference(email);
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -64,4 +61,5 @@ public class NoteListRepositoryImpl implements NoteListRepository {
     public void signOff() {
         FirebaseAuth.getInstance().signOut();
     }
+
 }

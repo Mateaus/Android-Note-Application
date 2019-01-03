@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +24,7 @@
         <activity
             android:name=".note.ui.NoteListActivity"
             android:label="Notes"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data

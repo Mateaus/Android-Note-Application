@@ -22,7 +22,7 @@ public class UpdateNoteRepositoryImpl implements UpdateNoteRepository {
         try{
             String emailRef = fireBaseHelper.getAuthUserEmail().replace(".","_");
 
-            DatabaseReference myRef = fireBaseHelper.getNotesReference(emailRef);
+            DatabaseReference myRef = fireBaseHelper.getUserNoteReference(emailRef);
             int updateFlag = 0;
 
             if(!getCategoryFromBundle(fragment).equals(updatedNote.getTitle())){

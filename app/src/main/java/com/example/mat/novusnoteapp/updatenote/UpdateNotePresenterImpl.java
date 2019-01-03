@@ -28,6 +28,7 @@ public class UpdateNotePresenterImpl implements UpdateNotePresenter, UpdateNoteI
     @Override
     public void onDestroy() {
         this.updateNoteView = null;
+        this.updateNoteInteractor.destroyNoteUpdateListener();
     }
 
 

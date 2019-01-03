@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mat.novusnoteapp.AndroidNoteApplication;
 import com.example.mat.novusnoteapp.MainActivity;
 import com.example.mat.novusnoteapp.R;
 import com.example.mat.novusnoteapp.addnote.AddNoteFragment;

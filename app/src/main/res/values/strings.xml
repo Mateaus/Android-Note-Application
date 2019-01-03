@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NovusNoteApp</string>
+    <string name="app_name">NovusNoteTaker</string>
     <string name="welcome">Novus</string>
     <string name="recoverpass">Forgot your password?</string>
     <string name="new_account">Don\'t have an account?</string>

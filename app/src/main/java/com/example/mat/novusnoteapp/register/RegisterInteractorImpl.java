@@ -1,10 +1,10 @@
 package com.example.mat.novusnoteapp.register;
 
-public class RegisterInteractorImpl implements RegisterInteractor{
+public class RegisterInteractorImpl implements RegisterInteractor {
 
     private RegisterRepository registerRepository;
 
-    public RegisterInteractorImpl(RegisterInteractor.onRegisterFinishedListener listener){
+    public RegisterInteractorImpl(RegisterInteractor.onRegisterFinishedListener listener) {
         this.registerRepository = new RegisterRepositoryImpl(listener);
     }
 

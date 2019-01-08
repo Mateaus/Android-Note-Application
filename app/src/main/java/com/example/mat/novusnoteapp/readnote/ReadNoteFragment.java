@@ -23,7 +23,7 @@ public class ReadNoteFragment extends Fragment {
     @BindView(R.id.descriptionTV)   TextView descriptionTV;
     @BindView(R.id.backBtn)         ImageButton backBtn;
 
-    public ReadNoteFragment(){
+    public ReadNoteFragment() {
         // Required empty public constructor
     }
 
@@ -39,17 +39,17 @@ public class ReadNoteFragment extends Fragment {
     }
 
     @Override
-    public void onDestroyView(){
+    public void onDestroyView() {
         super.onDestroyView();
         getFragmentManager().popBackStack();
     }
 
     @OnClick(R.id.backBtn)
-    public void backButtonHandler(){
+    public void backButtonHandler() {
         getFragmentManager().popBackStack();
     }
 
-    private void setupNote(){
+    private void setupNote() {
         String title = getArguments().getString("title");
         String description = getArguments().getString("description");
 

@@ -12,20 +12,20 @@ public class RecoveryRepositoryImpl implements RecoveryRepository {
     private RecoveryInteractor.onRecoveryFinishedListener listener;
     private FirebaseAuth mAuth;
 
-    public RecoveryRepositoryImpl(RecoveryInteractor.onRecoveryFinishedListener listener){
+    public RecoveryRepositoryImpl(RecoveryInteractor.onRecoveryFinishedListener listener) {
         this.listener = listener;
         this.mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void recoverAccount(String email) {
-        if(TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             listener.onRecoveryError("Please fill up the blank space.");
         } else {
             mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         listener.onRecoverySuccess("Successfully sent email to reset password!");
                     } else {
                         listener.onRecoveryError(task.getException().getMessage());

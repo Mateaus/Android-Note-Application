@@ -14,18 +14,17 @@ public class RegisterRepositoryImpl implements RegisterRepository {
     private FirebaseAuth mAuth;
     private RegisterInteractor.onRegisterFinishedListener listener;
 
-    public RegisterRepositoryImpl(RegisterInteractor.onRegisterFinishedListener listener){
+    public RegisterRepositoryImpl(RegisterInteractor.onRegisterFinishedListener listener) {
         this.listener = listener;
         this.mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void signUp(String email, String password) {
-        if(TextUtils.isEmpty(email) && TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
             listener.onSignUpError("Please fill the blank areas.");
-        }
-        else if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-            if(TextUtils.isEmpty(email)){
+        } else if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            if (TextUtils.isEmpty(email)) {
                 listener.onSignUpError("Email cannot be empty.");
             } else {
                 listener.onSignUpError("Password cannot be empty.");

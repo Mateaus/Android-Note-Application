@@ -16,14 +16,14 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
     private NoteListAdapter mAdapter;
     private FireBaseHelper helper;
 
-    public SimpleItemTouchHelperCallback(NoteListAdapter adapter){
+    public SimpleItemTouchHelperCallback(NoteListAdapter adapter) {
         this.helper = new FireBaseHelper();
         this.mAdapter = adapter;
     }
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        return makeMovementFlags(0, LEFT| RIGHT);
+        return makeMovementFlags(0, LEFT | RIGHT);
     }
 
     @Override

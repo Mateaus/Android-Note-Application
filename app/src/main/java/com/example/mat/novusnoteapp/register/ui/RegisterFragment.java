@@ -21,7 +21,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterFragment extends Fragment implements RegisterView{
+public class RegisterFragment extends Fragment implements RegisterView {
 
     @BindView(R.id.registerBtn)     Button registerBtn;
     @BindView(R.id.backBtn)         Button backBtn;
@@ -47,20 +47,20 @@ public class RegisterFragment extends Fragment implements RegisterView{
     }
 
     @OnClick(R.id.registerBtn)
-    public void handleRegisterButton(){
+    public void handleRegisterButton() {
         registerPresenter.registerNewUser(emailregET.getText().toString(),
                 passregET.getText().toString());
 
     }
 
     @OnClick(R.id.backBtn)
-    public void handleReturnButton(){
+    public void handleReturnButton() {
         getFragmentManager().popBackStack();
     }
 
     @Override
     public void onRegistrationSuccess(String message) {
-        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -72,7 +72,7 @@ public class RegisterFragment extends Fragment implements RegisterView{
     }
 
     @Override
-    public void navigateToLoginScreen(){
+    public void navigateToLoginScreen() {
         getFragmentManager().popBackStack();
     }
 
@@ -96,7 +96,7 @@ public class RegisterFragment extends Fragment implements RegisterView{
         progressBar.setVisibility(View.GONE);
     }
 
-    private void setInputs(boolean option){
+    private void setInputs(boolean option) {
         registerBtn.setEnabled(option);
         backBtn.setEnabled(option);
     }

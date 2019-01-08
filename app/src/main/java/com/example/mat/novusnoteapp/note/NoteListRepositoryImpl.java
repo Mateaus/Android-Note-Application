@@ -16,14 +16,14 @@ public class NoteListRepositoryImpl implements NoteListRepository {
     private FireBaseHelper helper;
     private NoteListInteractor.onNoteListFinishedListener listener;
 
-    public NoteListRepositoryImpl(NoteListInteractor.onNoteListFinishedListener listener){
+    public NoteListRepositoryImpl(NoteListInteractor.onNoteListFinishedListener listener) {
         this.helper = new FireBaseHelper();
         this.listener = listener;
     }
 
     @Override
     public void subscribeForNoteEvents() {
-        String email = helper.getAuthUserEmail().replace(".","_");
+        String email = helper.getAuthUserEmail().replace(".", "_");
 
         DatabaseReference myRef = helper.getUserNoteReference(email);
         myRef.addChildEventListener(new ChildEventListener() {

@@ -32,7 +32,7 @@ public class NoteListActivity extends AppCompatActivity {
         }
     }
 
-    public void loadReadNoteScreen(Note note){
+    public void loadReadNoteScreen(Note note) {
         ReadNoteFragment readNoteFragment = new ReadNoteFragment();
 
         Bundle bundle = new Bundle();
@@ -43,7 +43,7 @@ public class NoteListActivity extends AppCompatActivity {
         fm.beginTransaction().replace(R.id.note_container, readNoteFragment).addToBackStack(null).commit();
     }
 
-    public void loadUpdateNoteScreen(Note note){
+    public void loadUpdateNoteScreen(Note note) {
         UpdateNoteFragment updateNoteFragment = new UpdateNoteFragment();
 
         Bundle bundle = new Bundle();

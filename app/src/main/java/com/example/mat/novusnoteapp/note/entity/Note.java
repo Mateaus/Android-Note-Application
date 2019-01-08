@@ -7,16 +7,16 @@ public class Note {
     private String description;
     private String date;
 
-    public Note(){
+    public Note() {
 
     }
 
-    public Note(String title, String description){
+    public Note(String title, String description) {
         this.title = title;
         this.description = description;
     }
 
-    public Note(String id, String title, String description, String date){
+    public Note(String id, String title, String description, String date) {
         this.id = id;
         this.title = title;
         this.description = description;

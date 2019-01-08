@@ -4,7 +4,7 @@ public class NoteListInteractorImpl implements NoteListInteractor {
 
     private NoteListRepository noteListRepository;
 
-    public NoteListInteractorImpl(NoteListInteractor.onNoteListFinishedListener listener){
+    public NoteListInteractorImpl(NoteListInteractor.onNoteListFinishedListener listener) {
         this.noteListRepository = new NoteListRepositoryImpl(listener);
     }
 

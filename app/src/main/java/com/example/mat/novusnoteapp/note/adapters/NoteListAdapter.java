@@ -11,9 +11,6 @@ import com.example.mat.novusnoteapp.R;
 import com.example.mat.novusnoteapp.note.entity.Note;
 import com.example.mat.novusnoteapp.note.ui.OnItemClickListener;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -25,7 +22,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
     private OnItemClickListener clickListener;
 
     public NoteListAdapter(List<Note> noteList,
-                           OnItemClickListener clickListener){
+                           OnItemClickListener clickListener) {
         this.noteList = noteList;
         this.clickListener = clickListener;
     }
@@ -56,28 +53,28 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         return noteList.size();
     }
 
-    public void add(Note note){
+    public void add(Note note) {
         this.noteList.add(note);
         this.notifyDataSetChanged();
     }
 
-    public void update(Note note){
+    public void update(Note note) {
         int pos = getPositionById(note);
         this.noteList.get(pos).setTitle(note.getTitle());
         this.noteList.get(pos).setDescription(note.getDescription());
         this.notifyDataSetChanged();
     }
 
-    public void remove(Note note){
+    public void remove(Note note) {
         int pos = getPositionById(note);
         this.noteList.remove(pos);
         this.notifyDataSetChanged();
     }
 
-    private int getPositionById(Note note){
+    private int getPositionById(Note note) {
         int position = 0;
-        for(Note notes: noteList){
-            if(note.getId().equals(notes.getId())){
+        for (Note notes : noteList) {
+            if (note.getId().equals(notes.getId())) {
                 break;
             }
             position++;
@@ -86,7 +83,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         return position;
     }
 
-    public Note getIdByPosition(int position){
+    public Note getIdByPosition(int position) {
         return noteList.get(position);
     }
 
@@ -104,10 +101,10 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.ViewHo
         }
 
         public void setClickListener(final Note note,
-                                     final OnItemClickListener listener){
+                                     final OnItemClickListener listener) {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view){
+                public void onClick(View view) {
                     listener.onItemClick(note);
                 }
             });

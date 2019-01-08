@@ -4,7 +4,7 @@ public class RecoveryInteractorImpl implements RecoveryInteractor {
 
     private RecoveryRepository recoveryRepository;
 
-    public RecoveryInteractorImpl(RecoveryInteractor.onRecoveryFinishedListener listener){
+    public RecoveryInteractorImpl(RecoveryInteractor.onRecoveryFinishedListener listener) {
         this.recoveryRepository = new RecoveryRepositoryImpl(listener);
     }
 

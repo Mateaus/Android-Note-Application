@@ -9,15 +9,15 @@ public class FireBaseHelper {
 
     private DatabaseReference databaseReference;
 
-    public FireBaseHelper(){
+    public FireBaseHelper() {
         this.databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public DatabaseReference getDatabaseReference(){
+    public DatabaseReference getDatabaseReference() {
         return this.databaseReference;
     }
 
-    public DatabaseReference getUserReference(String email){
+    public DatabaseReference getUserReference(String email) {
         DatabaseReference userReference = null;
         if (email != null) {
             String emailKey = email.replace(".", "_");
@@ -31,9 +31,9 @@ public class FireBaseHelper {
         return getUserReference(getAuthUserEmail());
     }
 
-    public DatabaseReference getUserNoteReference(String email){
+    public DatabaseReference getUserNoteReference(String email) {
         DatabaseReference notesReference = null;
-        if(email != null){
+        if (email != null) {
             notesReference = databaseReference.getRoot().child("notes").child(email);
         }
 

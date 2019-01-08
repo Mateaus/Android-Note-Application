@@ -8,7 +8,7 @@ public class UpdateNoteInteractorImpl implements UpdateNoteInteractor {
 
     private UpdateNoteRepository updateNoteRepository;
 
-    public UpdateNoteInteractorImpl(UpdateNoteInteractor.onNoteUpdatedListener listener){
+    public UpdateNoteInteractorImpl(UpdateNoteInteractor.onNoteUpdatedListener listener) {
         this.updateNoteRepository = new UpdateNoteRepositoryImpl(listener);
     }
 

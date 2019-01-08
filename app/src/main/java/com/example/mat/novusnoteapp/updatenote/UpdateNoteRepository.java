@@ -7,5 +7,6 @@ import com.example.mat.novusnoteapp.note.entity.Note;
 public interface UpdateNoteRepository {
 
     void updateNote(Fragment fragment, Note note);
+
     void destroyNoteUpdateListener();
 }

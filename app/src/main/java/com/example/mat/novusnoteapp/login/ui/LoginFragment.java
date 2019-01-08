@@ -19,7 +19,6 @@ import com.example.mat.novusnoteapp.login.LoginPresenter;
 import com.example.mat.novusnoteapp.login.LoginPresenterImpl;
 import com.example.mat.novusnoteapp.note.ui.NoteListActivity;
 import com.example.mat.novusnoteapp.register.ui.RegisterFragment;
-import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

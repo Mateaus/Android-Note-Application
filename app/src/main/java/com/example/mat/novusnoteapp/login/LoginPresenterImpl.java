@@ -2,19 +2,19 @@ package com.example.mat.novusnoteapp.login;
 
 import com.example.mat.novusnoteapp.login.ui.LoginView;
 
-public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLoginFinishedListener{
+public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLoginFinishedListener {
 
     private LoginView loginView;
     private LoginInteractor loginInteractor;
 
-    public LoginPresenterImpl(LoginView loginView){
+    public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
         this.loginInteractor = new LoginInteractorImpl(this);
     }
-    
+
     @Override
     public void checkForAuthenticatedUser() {
-        if(loginView != null){
+        if (loginView != null) {
             loginView.disableInputs();
             loginView.showProgress();
         }
@@ -24,7 +24,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
 
     @Override
     public void validateLogin(String email, String password) {
-        if(loginView != null){
+        if (loginView != null) {
             loginView.showProgress();
             loginView.disableInputs();
         }
@@ -39,7 +39,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
 
     @Override
     public void onSignInSuccess(String message) {
-        if(loginView != null) {
+        if (loginView != null) {
             loginView.onLoginSuccess(message);
             loginView.hideProgress();
             loginView.navigateToAppScreen();
@@ -48,7 +48,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
 
     @Override
     public void onSignInError(String error) {
-        if(loginView != null) {
+        if (loginView != null) {
             loginView.onLoginError(error);
             loginView.hideProgress();
             loginView.enableInputs();
@@ -57,7 +57,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
 
     @Override
     public void onAuthSuccess() {
-        if(loginView != null) {
+        if (loginView != null) {
             loginView.hideProgress();
             loginView.enableInputs();
             loginView.navigateToAppScreen();
@@ -66,7 +66,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
 
     @Override
     public void onFailedAuthSession() {
-        if(loginView != null) {
+        if (loginView != null) {
             loginView.hideProgress();
             loginView.enableInputs();
         }

@@ -22,20 +22,23 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddNoteFragment extends DialogFragment implements AddNoteView, DialogInterface.OnShowListener{
+public class AddNoteFragment extends DialogFragment implements AddNoteView, DialogInterface.OnShowListener {
 
-    @BindView(R.id.titleTV)         EditText titleTV;
-    @BindView(R.id.descriptionTV)   EditText descriptionTV;
-    @BindView(R.id.progressBar)     ProgressBar progressBar;
+    @BindView(R.id.titleTV)
+    EditText titleTV;
+    @BindView(R.id.descriptionTV)
+    EditText descriptionTV;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
 
     private AddNotePresenter addNotePresenter;
 
-    public AddNoteFragment(){
+    public AddNoteFragment() {
         this.addNotePresenter = new AddNotePresenterImpl(this);
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle saveInstanceState){
+    public Dialog onCreateDialog(Bundle saveInstanceState) {
         LayoutInflater i = getActivity().getLayoutInflater();
         View v = i.inflate(R.layout.add_note_title, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
@@ -43,12 +46,14 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
                 .setPositiveButton(R.string.addnote_message_add,
                         new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {}
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
                         })
                 .setNegativeButton(R.string.addnote_message_cancel,
                         new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which) {}
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
                         });
 
         View view = i.inflate(R.layout.fragment_add_note_dialog, null);
@@ -64,7 +69,7 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
     @Override
     public void onShow(DialogInterface dialogInterface) {
         final AlertDialog dialog = (AlertDialog) getDialog();
-        if(dialog != null){
+        if (dialog != null) {
 
             Button positiveButton = dialog.getButton(Dialog.BUTTON_POSITIVE);
             positiveButton.setTextColor(Color.parseColor("#4b2c20"));
@@ -74,8 +79,8 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
             positiveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(titleTV.getText().toString().isEmpty() &&
-                            descriptionTV.getText().toString().isEmpty()){
+                    if (titleTV.getText().toString().isEmpty() &&
+                            descriptionTV.getText().toString().isEmpty()) {
                         dismiss();
                     } else {
                         addNotePresenter.addNote(titleTV.getText().toString(),
@@ -92,11 +97,10 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
             });
 
         }
-        addNotePresenter.onShow();
     }
 
     @Override
-    public void onDestroyView(){
+    public void onDestroyView() {
         super.onDestroyView();
         addNotePresenter.onDestroy();
     }
@@ -125,7 +129,7 @@ public class AddNoteFragment extends DialogFragment implements AddNoteView, Dial
 
     @Override
     public void noteAdded() {
-        Toast.makeText(getActivity(), R.string.addnote_message_contactadded,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.addnote_message_contactadded, Toast.LENGTH_SHORT).show();
         dismiss();
     }
 

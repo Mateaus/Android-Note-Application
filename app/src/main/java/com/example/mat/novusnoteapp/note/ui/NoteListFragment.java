@@ -27,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class NoteListFragment extends Fragment implements NoteListView, OnItemClickListener{
+public class NoteListFragment extends Fragment implements NoteListView, OnItemClickListener {
 
     @BindView(R.id.recyclerViewNotes)   RecyclerView recyclerView;
     @BindView(R.id.toolbar)             Toolbar toolbar;
@@ -35,13 +35,13 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
     private NoteListAdapter noteListAdapter;
     private NoteListPresenter noteListPresenter;
 
-    public NoteListFragment(){
+    public NoteListFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle saveInstanceState){
+                             Bundle saveInstanceState) {
         View v = inflater.inflate(R.layout.fragment_list_notes, container, false);
         ButterKnife.bind(this, v);
 
@@ -49,7 +49,7 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
         noteListPresenter.subscribeForNoteEvents();
 
         setHasOptionsMenu(true);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         setupAdapter();
         setupRecyclerView();
@@ -76,18 +76,18 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
      * a note, it recreates it from 0 and doesn't overwrite over the previous existing one.
      */
     @Override
-    public void onDestroyView(){
+    public void onDestroyView() {
         super.onDestroyView();
         noteListPresenter.onDestroy();
     }
 
     @OnClick(R.id.fab)
-    public void addNote(){
+    public void addNote() {
         AddNoteFragment frag = new AddNoteFragment();
         frag.show(getFragmentManager(), "");
     }
 
-    private void setupAdapter(){
+    private void setupAdapter() {
         noteListAdapter = new NoteListAdapter(new ArrayList<Note>(), this);
     }
 
@@ -117,18 +117,18 @@ public class NoteListFragment extends Fragment implements NoteListView, OnItemCl
 
     @Override
     public void onItemClick(Note note) {
-        NoteListActivity noteListActivity = (NoteListActivity)getActivity();
+        NoteListActivity noteListActivity = (NoteListActivity) getActivity();
         noteListActivity.loadUpdateNoteScreen(note);
     }
 
     @Override
     public void onItemLongClick(Note note) {
-        NoteListActivity noteListActivity = (NoteListActivity)getActivity();
+        NoteListActivity noteListActivity = (NoteListActivity) getActivity();
         noteListActivity.loadReadNoteScreen(note);
     }
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         // Logs us out when this activity is destroyed.
         super.onDestroy();
         noteListPresenter.signOff();

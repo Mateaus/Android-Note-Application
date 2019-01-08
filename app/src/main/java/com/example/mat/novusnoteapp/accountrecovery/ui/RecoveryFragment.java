@@ -47,18 +47,18 @@ public class RecoveryFragment extends Fragment implements RecoveryView {
     }
 
     @OnClick(R.id.retrievepasswordBtn)
-    public void handleRetrievalButton(){
+    public void handleRetrievalButton() {
         recoveryPresenter.recoveryAccount(retrievemailET.getText().toString());
     }
 
     @OnClick(R.id.cancelBtn)
-    public void handleReturnButton(){
+    public void handleReturnButton() {
         getFragmentManager().popBackStack();
     }
 
     @Override
     public void onRecoverySuccess(String message) {
-        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -94,7 +94,7 @@ public class RecoveryFragment extends Fragment implements RecoveryView {
         progressBar.setVisibility(View.GONE);
     }
 
-    private void setInputs(boolean option){
+    private void setInputs(boolean option) {
         retrievepassBtn.setEnabled(option);
         cancelBtn.setEnabled(option);
     }

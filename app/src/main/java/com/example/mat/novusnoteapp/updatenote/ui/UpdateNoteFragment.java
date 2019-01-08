@@ -21,7 +21,7 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UpdateNoteFragment extends Fragment implements UpdateNoteView{
+public class UpdateNoteFragment extends Fragment implements UpdateNoteView {
 
     @BindView(R.id.acceptBtn)       ImageButton acceptBtn;
     @BindView(R.id.backBtn)         ImageButton backBtn;
@@ -46,31 +46,31 @@ public class UpdateNoteFragment extends Fragment implements UpdateNoteView{
     }
 
     @OnClick(R.id.acceptBtn)
-    public void acceptButtonHandler(){
+    public void acceptButtonHandler() {
         updateNotePresenter.updateNote(this,
                 new Note(titleET.getText().toString(),
                         descriptionET.getText().toString()));
     }
 
     @OnClick(R.id.backBtn)
-    public void backButtonHandler(){
+    public void backButtonHandler() {
         updateNotePresenter.backScreen();
     }
 
     @Override
-    public void onDestroyView(){
+    public void onDestroyView() {
         super.onDestroyView();
         this.updateNotePresenter.onDestroy();
     }
 
     @Override
     public void onUpdateSuccess(String message) {
-        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onUpdateError(String error) {
-        Toast.makeText(getContext(),error,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -78,7 +78,7 @@ public class UpdateNoteFragment extends Fragment implements UpdateNoteView{
         getFragmentManager().popBackStack();
     }
 
-    private void setupNote(){
+    private void setupNote() {
         String category = getArguments().getString("title");
         String description = getArguments().getString("description");
 

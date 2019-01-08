@@ -15,19 +15,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddNotePresenterImpl implements AddNotePresenter{
+public class AddNotePresenterImpl implements AddNotePresenter {
 
     private AddNoteView addNoteView;
     private DatabaseReference dataReference;
 
-    public AddNotePresenterImpl(AddNoteView view){
+    public AddNotePresenterImpl(AddNoteView view) {
         this.addNoteView = view;
         this.dataReference = FirebaseDatabase.getInstance().getReference();
-    }
-
-    @Override
-    public void onShow() {
-
     }
 
     @Override
@@ -44,16 +39,16 @@ public class AddNotePresenterImpl implements AddNotePresenter{
     }
 
     private void addNote(final String title, final String description,
-                            final String date){
+                         final String date) {
         final DatabaseReference userReference = getUserReference(getAuthUserEmail());
         userReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                if(user != null){
-                    String emailKey = user.getEmail().replace(".","_");
+                if (user != null) {
+                    String emailKey = user.getEmail().replace(".", "_");
                     String noteKey = dataReference.child("notes").child(emailKey).push().getKey();
-                    dataReference.child("notes").child(emailKey).child(noteKey).setValue(new Note(noteKey,title,description,date));
+                    dataReference.child("notes").child(emailKey).child(noteKey).setValue(new Note(noteKey, title, description, date));
                     addNoteView.noteAdded();
                 } else {
                     addNoteView.showInput();
@@ -70,7 +65,7 @@ public class AddNotePresenterImpl implements AddNotePresenter{
 
     }
 
-    private DatabaseReference getUserReference(String email){
+    private DatabaseReference getUserReference(String email) {
         DatabaseReference userReference = null;
         if (email != null) {
             String emailKey = email.replace(".", "_");
@@ -79,11 +74,11 @@ public class AddNotePresenterImpl implements AddNotePresenter{
         return userReference;
     }
 
-    public DatabaseReference getNotesReference(String email){
+    public DatabaseReference getNotesReference(String email) {
         return getUserReference(email).child("notes");
     }
 
-    public DatabaseReference getMyNotesReference(){
+    public DatabaseReference getMyNotesReference() {
         return getNotesReference(getAuthUserEmail());
     }
 
@@ -96,16 +91,16 @@ public class AddNotePresenterImpl implements AddNotePresenter{
         return email;
     }
 
-    private String getCurrentDate(){
+    private String getCurrentDate() {
 
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
 
-        int month = c.get(Calendar.MONTH)+1;
+        int month = c.get(Calendar.MONTH) + 1;
         int week = c.get(Calendar.DAY_OF_MONTH);
         int year = c.get(Calendar.YEAR);
 
-        String time = Integer.toString(month) +"/"+ Integer.toString(week) +"/"+ Integer.toString(year);
+        String time = Integer.toString(month) + "/" + Integer.toString(week) + "/" + Integer.toString(year);
 
         return time;
     }

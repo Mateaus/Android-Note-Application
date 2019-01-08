@@ -2,8 +2,9 @@ package com.example.mat.novusnoteapp.register;
 
 public interface RegisterInteractor {
 
-    interface onRegisterFinishedListener{
+    interface onRegisterFinishedListener {
         void onSignUpSuccess(String message);
+
         void onSignUpError(String error);
     }
 

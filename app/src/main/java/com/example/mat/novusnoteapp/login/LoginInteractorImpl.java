@@ -1,10 +1,10 @@
 package com.example.mat.novusnoteapp.login;
 
-public class LoginInteractorImpl implements LoginInteractor{
+public class LoginInteractorImpl implements LoginInteractor {
 
     private LoginRepository loginRepository;
 
-    public LoginInteractorImpl(LoginInteractor.onLoginFinishedListener listener){
+    public LoginInteractorImpl(LoginInteractor.onLoginFinishedListener listener) {
         this.loginRepository = new LoginRepositoryImpl(listener);
     }
 

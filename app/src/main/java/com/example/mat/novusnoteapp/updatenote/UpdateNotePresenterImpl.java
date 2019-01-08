@@ -10,7 +10,7 @@ public class UpdateNotePresenterImpl implements UpdateNotePresenter, UpdateNoteI
     private UpdateNoteView updateNoteView;
     private UpdateNoteInteractor updateNoteInteractor;
 
-    public UpdateNotePresenterImpl(UpdateNoteView updateNoteView){
+    public UpdateNotePresenterImpl(UpdateNoteView updateNoteView) {
         this.updateNoteView = updateNoteView;
         this.updateNoteInteractor = new UpdateNoteInteractorImpl(this);
     }
@@ -34,14 +34,14 @@ public class UpdateNotePresenterImpl implements UpdateNotePresenter, UpdateNoteI
 
     @Override
     public void onUpdateSuccess(String message) {
-        if(updateNoteView != null){
+        if (updateNoteView != null) {
             updateNoteView.onUpdateSuccess(message);
         }
     }
 
     @Override
     public void onUpdateError(String error) {
-        if(updateNoteView != null){
+        if (updateNoteView != null) {
             updateNoteView.onUpdateError(error);
         }
     }

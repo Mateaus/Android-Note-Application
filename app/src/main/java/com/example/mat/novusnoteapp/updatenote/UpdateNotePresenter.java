@@ -7,6 +7,8 @@ import com.example.mat.novusnoteapp.note.entity.Note;
 public interface UpdateNotePresenter {
 
     void updateNote(Fragment fragment, Note note);
+
     void backScreen();
+
     void onDestroy();
 }

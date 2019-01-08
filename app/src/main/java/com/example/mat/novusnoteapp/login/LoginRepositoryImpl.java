@@ -14,13 +14,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginRepositoryImpl implements LoginRepository{
+public class LoginRepositoryImpl implements LoginRepository {
 
     private FireBaseHelper helper;
     private DatabaseReference myUserReference;
     private LoginInteractor.onLoginFinishedListener listener;
 
-    public LoginRepositoryImpl(LoginInteractor.onLoginFinishedListener listener){
+    public LoginRepositoryImpl(LoginInteractor.onLoginFinishedListener listener) {
         this.helper = new FireBaseHelper();
         this.myUserReference = helper.getMyUserReference(); // user reference tree
         this.listener = listener;
@@ -28,11 +28,10 @@ public class LoginRepositoryImpl implements LoginRepository{
 
     @Override
     public void signIn(String email, String password) {
-        if(TextUtils.isEmpty(email) && TextUtils.isEmpty(password)){
+        if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
             listener.onSignInError("Please fill the blank areas.");
-        }
-        else if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-            if(TextUtils.isEmpty(email)){
+        } else if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            if (TextUtils.isEmpty(email)) {
                 listener.onSignInError("Email cannot be empty.");
             } else {
                 listener.onSignInError("Password cannot be empty.");
@@ -68,7 +67,7 @@ public class LoginRepositoryImpl implements LoginRepository{
 
     @Override
     public void checkAlreadyAuthenticated() {
-        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             myUserReference = helper.getMyUserReference();
             myUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -87,7 +86,7 @@ public class LoginRepositoryImpl implements LoginRepository{
         }
     }
 
-    private void initSignIn(DataSnapshot snapshot){
+    private void initSignIn(DataSnapshot snapshot) {
         User currentUser = snapshot.getValue(User.class);
 
         if (currentUser == null) {

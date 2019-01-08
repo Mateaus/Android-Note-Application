@@ -7,6 +7,10 @@ import com.example.mat.novusnoteapp.note.entity.Note;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class UpdateNoteRepositoryImpl implements UpdateNoteRepository {
 
     private UpdateNoteInteractor.onNoteUpdatedListener listener;
@@ -36,6 +40,7 @@ public class UpdateNoteRepositoryImpl implements UpdateNoteRepository {
 
             if (updateFlag == 1) {
                 listener.onUpdateSuccess("Successfully Updated Note");
+                myRef.child(getIdFromBundle(fragment)).child("date").setValue(getCurrentDate());
                 fragment.getFragmentManager().popBackStack();
             } else {
                 fragment.getFragmentManager().popBackStack();
@@ -50,6 +55,15 @@ public class UpdateNoteRepositoryImpl implements UpdateNoteRepository {
     @Override
     public void destroyNoteUpdateListener() {
         this.listener = null;
+    }
+
+    private String getCurrentDate() {
+        DateFormat dateFormat = new SimpleDateFormat("M/d/y");
+        DateFormat hourFormat = new SimpleDateFormat("h:mm a");
+        String date = dateFormat.format(Calendar.getInstance().getTime());
+        String time = hourFormat.format(Calendar.getInstance().getTime());
+        String calendar = "\t" + time + "\n" + date;
+        return calendar;
     }
 
     private String getIdFromBundle(Fragment fragment) {

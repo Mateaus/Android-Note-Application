@@ -12,8 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class AddNotePresenterImpl implements AddNotePresenter {
 
@@ -92,16 +93,11 @@ public class AddNotePresenterImpl implements AddNotePresenter {
     }
 
     private String getCurrentDate() {
-
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-
-        int month = c.get(Calendar.MONTH) + 1;
-        int week = c.get(Calendar.DAY_OF_MONTH);
-        int year = c.get(Calendar.YEAR);
-
-        String time = Integer.toString(month) + "/" + Integer.toString(week) + "/" + Integer.toString(year);
-
-        return time;
+        DateFormat dateFormat = new SimpleDateFormat("M/d/y");
+        DateFormat hourFormat = new SimpleDateFormat("h:mm a");
+        String date = dateFormat.format(Calendar.getInstance().getTime());
+        String time = hourFormat.format(Calendar.getInstance().getTime());
+        String calendar = "\t" + time + "\n" + date;
+        return calendar;
     }
 }

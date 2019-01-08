@@ -1,6 +1,7 @@
 package com.example.mat.novusnoteapp;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
@@ -9,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LoginFragment loginFragment;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,16 +19,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         FragmentManager fm = getSupportFragmentManager();
-        loginFragment = (LoginFragment)fm.findFragmentById(R.id.container_main);
+        fragment = (Fragment) fm.findFragmentById(R.id.container_main);
 
-        if(loginFragment == null){
+        if (fragment == null) {
             LoginFragment lf = new LoginFragment();
             fm.beginTransaction().add(R.id.container_main, lf).commit();
         }
     }
 
     @Override
-    protected void onRestart(){
+    protected void onRestart() {
         super.onRestart();
         FirebaseAuth.getInstance().signOut();
     }

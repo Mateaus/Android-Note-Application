@@ -1,6 +1,7 @@
 package com.example.mat.novusnoteapp.note.ui;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -23,10 +24,10 @@ public class NoteListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         fm = getSupportFragmentManager();
-        NoteListFragment noteListFragment = (NoteListFragment) fm.findFragmentById(R.id.note_container);
+        Fragment fragment = (Fragment) fm.findFragmentById(R.id.note_container);
 
-        if (noteListFragment == null) {
-            noteListFragment = new NoteListFragment();
+        if (fragment == null) {
+            NoteListFragment noteListFragment = new NoteListFragment();
             fm.beginTransaction().add(R.id.note_container, noteListFragment).commit();
         }
     }
